@@ -19,10 +19,10 @@ server.use(session({
 }))
 
 
-
 	
 
-
+const authController = require('./controllers/authController')
+server.use('/auth', authController)
 
 
 server.get('/', (req, res) => {
