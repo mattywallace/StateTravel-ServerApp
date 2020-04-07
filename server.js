@@ -4,6 +4,11 @@ const server = express()
 const PORT = process.env.PORT
 const session = require('express-session')
 
+require('./db/db')
+
+
+
+
 server.use(express.static('public'))
 
 
