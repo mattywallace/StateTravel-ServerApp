@@ -3,15 +3,22 @@
 <h3>Sign up here</h3>
 
 
-
-
-<form>
+<form method='POST'action='/auth/register'>
 	<fieldset>
 		<legend>
 			<small>
 			Choose a username and password below
 			</small>
 		</legend>
+	<div>
+		<label for='emailAddress'>Email :</label>
+		<input
+		id='emailAddress'
+		type='text'
+		name='emailAddress'
+		placeholder='enter your email address'
+		/>
+	</div>
 	<div>
 		<label for='username'>Username:</label>
 		<input
@@ -33,6 +40,11 @@
 	<button>Sign up!</button>
 	</fieldset>
 </form>
+
+
+
+
+
 
 
 
