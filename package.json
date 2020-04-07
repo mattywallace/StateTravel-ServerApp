@@ -1,0 +1,31 @@
+{
+  "name": "statetravel-serverapp",
+  "version": "1.0.0",
+  "description": "STATE TRAVEL JOURNAl SERVER",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattywallace/StateTravel-ServerApp.git"
+  },
+  "keywords": [
+    "crud",
+    "manstack",
+    "mongo",
+    "mongoose",
+    "express"
+  ],
+  "author": "matthew wallace , steven boyer, kevein ashtari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattywallace/StateTravel-ServerApp/issues"
+  },
+  "homepage": "https://github.com/mattywallace/StateTravel-ServerApp#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1"
+  }
+}
