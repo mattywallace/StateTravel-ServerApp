@@ -1,6 +1,11 @@
 <%- include('../partials/header.ejs') %>
 
-	<%- include('./nav.ejs') %>
+
+<% if (username) { %>
+<%- include('./nav.ejs') %>
+
+<% } %>
+
 
 	<h3>States Index</h3>
 

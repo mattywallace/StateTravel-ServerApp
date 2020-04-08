@@ -27,11 +27,16 @@ router.get('/seed', async (req, res, next) => {
 // state INDEX route: GET /auth/register
 router.get('/',  async (req, res, next ) => {
 	try {
+		let messsageToDisplay = req.session.message
+    	req.session.message = ''
 		const foundStates = await State.find({})
 		console.log(foundStates)
 		res.render('states/index.ejs', {
 			states: foundStates,
-			userId: req.session.userId
+			userId: req.session.userId,
+			username: req.session.username,
+			message: messsageToDisplay,
+
 		})
 	}catch(error) {
 		next(error)
