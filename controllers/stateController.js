@@ -3,8 +3,8 @@ const router = express.Router()
 const State = require('../models/state')
 const stateData = require('../db/stateData.js')
 
-// populate state data from stateData.js (seed data)
 
+// state SEED route
 router.get('/seed', async (req, res, next) => {
 	try {
 		State.create(stateData, (error, createdStates) => {
@@ -24,10 +24,10 @@ router.get('/seed', async (req, res, next) => {
 
 
 
-// state index route: GET /auth/register
+// state INDEX route: GET /auth/register
 router.get('/',  async (req, res, next ) => {
 	try {
-		const foundStates = await State().populate('user')
+		const foundStates = await State.find({})
 		console.log(foundStates)
 		res.render('states/index.ejs', {
 			states: foundStates
@@ -38,7 +38,7 @@ router.get('/',  async (req, res, next ) => {
 })
 
 
-// state show route: GET /states/:id
+// state SHOW route: GET /states/:id
 
 router.get
 
