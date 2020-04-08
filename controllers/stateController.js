@@ -40,7 +40,17 @@ router.get('/',  async (req, res, next ) => {
 
 // state SHOW route: GET /states/:id
 
-router.get
+router.get('/:id', async (req, res, next) => {
+	try {
+		const foundState = await State.findById(req.params.id)
+		console.log(foundState)
+		res.render('states/show.ejs', {
+			state: foundState
+		})
+	} catch(error) {
+	  next(error)
+	}
+})
 
 
 
