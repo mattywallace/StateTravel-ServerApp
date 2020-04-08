@@ -25,6 +25,8 @@ server.use(session({
 
 const authController = require('./controllers/authController')
 server.use('/auth', authController)
+const stateController = require('./controllers/stateController')
+server.use('/states', stateController)
 
 
 server.get('/', (req, res) => {
