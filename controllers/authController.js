@@ -13,6 +13,7 @@ router.get('/register', (req, res) => {
     })
 })
 
+// registration route: POST /register
 router.post('/register', async (req, res, next) => {
     try {
         console.log(req.body);
@@ -53,6 +54,8 @@ router.post('/register', async (req, res, next) => {
     }
 })
 
+
+// login route: GET /login
 router.get('/login', (req, res) => {
     let message = req.session.message
     req.session.message = undefined
@@ -61,6 +64,9 @@ router.get('/login', (req, res) => {
     })
 })
 
+
+
+// login route: POST /login
 router.post('/login', async (req, res, next) => {
     try {
         const user = await User.findOne({
@@ -89,6 +95,7 @@ router.post('/login', async (req, res, next) => {
     }
 })
 
+// logout route GET /auth/login
 router.get('/logout', async	(req, res) => {
 	await req.session.destroy()
 	res.redirect('/auth/login')
