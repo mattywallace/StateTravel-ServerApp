@@ -10,7 +10,7 @@ User Stories
 
 3) In the states template there will be the model of the state wich includes name, capital, pop, top attractions, and the state bird. There will also be a section to leave comments at bottom. If the user (not logged in at this point) tries to leave a comment they will be taken to the login template. 
 
-4) The login will have a spot to register a username and password. If the username is already in use it will indicate that it is so on the page. If the username is good and the password is good then it will tell the user that they have been logged in. (STRETCH: If the email adress is alreay in use on another account it will indicate to the user that and not the username)
+4) The login will have a spot to register a username and password. If the username is already in use it will indicate that it is so on the page. If the username is good and the password is good then it will tell the user that they have been logged in. <!-- (STRETCH: If the email adress is alreay in use on another account it will indicate to the user that and not the username) -->
 
 "STRETCH GOAL(if the user was prompted to login from a page that wasnt the actual login link, they will be redirected back to the page they were originally on. )
 

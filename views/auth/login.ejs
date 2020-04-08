@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+
+<h3>Log in below</h3>
+
+<p><%= message %></p>
+
+ <form class='inputForm' method='POST' action='/auth/login'>
+ 	<fieldset class='fieldset'>	
+	 	<div>
+			<label class='label' for='username'>Username:</label>
+			<input class='input'
+			id='username'
+			type='text'
+			name='username'
+			placeholder='Choose a username'
+			/>
+		</div>
+		<div>
+			<label class='label' for='password'>Password:</label>
+			<input class='input' 
+			id='password'
+			type='password'
+			name='password'
+			placeholder='Choose a password'
+			/>
+		</div>
+    <button>Log in!</button>
+ 	</fieldset>
+ </form>
+
+
+<%- include('../partials/footer.ejs') %>
+ 		
+
+
+
+ 		

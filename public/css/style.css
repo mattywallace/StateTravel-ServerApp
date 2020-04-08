@@ -1,4 +1,26 @@
 body{
-	background-color: lightblue;
+	background:linear-gradient(to right, #ff8080, white , #80dfff); lightblue;
 	font-family: sans-serif;
 }
+
+.inputForm {
+	
+	display: flex;
+	text-align: center;
+	justify-content: space-between;
+	width: 25%;	
+}
+ .fieldset{
+ 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
+ 	border: solid black 5px;
+ 	border-radius: 10%;
+ 	font-size: 14pt
+ }
+
+ .input {
+ 	margin: 5px;
+ 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.19);
+ }
+
+
+ 	

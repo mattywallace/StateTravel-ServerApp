@@ -4,25 +4,25 @@
 
 <p><%= message %></p>
 
-<form method='POST'action='/auth/register'>
-	<fieldset>
+<form class='inputForm' method='POST' action='/auth/register'>
+	<fieldset class='fieldset'>
 		<legend>
 			<small>
 			Choose a username and password below
 			</small>
 		</legend>
 	<div>
-		<label for='emailAddress'>Email :</label>
-		<input
+		<label class='label' for='emailAddress'>Email:</label>
+		<input class='input' 
 		id='emailAddress'
 		type='text'
 		name='emailAddress'
-		placeholder='enter your email address'
+		placeholder='Enter email address'
 		/>
 	</div>
 	<div>
-		<label for='username'>Username:</label>
-		<input
+		<label class='label' for='username'>Username:</label>
+		<input class='input'
 		id='username'
 		type='text'
 		name='username'
@@ -30,8 +30,8 @@
 		/>
 	</div>
 	<div>
-		<label for='password'>Password</label>
-		<input
+		<label class='label' for='password'>Password:</label>
+		<input class='input' 
 		id='password'
 		type='password'
 		name='password'

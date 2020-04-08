@@ -15,11 +15,15 @@ const stateSchema = new mongoose.Schema({
 		req: true, 
 	},
 	population: {
-		type: Number
-		required: 
+		type: Number,
+		required: true
 	},
 	topAttractions: [String],
 	stateBird: String,
+	comment:[{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Comment'
+	}]
 
 })
 

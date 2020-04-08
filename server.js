@@ -28,8 +28,14 @@ server.use('/auth', authController)
 
 
 server.get('/', (req, res) => {
-	res.render('home.ejs')
+	const message = req.session.message
+	req.session.message = ''
+	res.render('home.ejs', {
+		message: message
+	})
+
 })
+	
 
 
 server.get('*', (req, res) => {

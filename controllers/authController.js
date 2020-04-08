@@ -42,12 +42,52 @@ router.post('/register', async (req, res, next) => {
 			req.session.loggedIn = true
 			req.session.userId = createdUser._id
 			req.session.username = createdUser.username
-			res.status(201).send('successfully registered and logged in as ' + req.session.username)
+			req.session.message = `Thank you for registering ${createdUser.username}`
+			res.redirect('/')
 		}
 	} catch(err) {
 		next(err)
 	}
 })
+
+router.get('/login', (req,res) => {
+	let message = req.session.message
+	req.session.message = undefined 
+	res.render('auth/login.ejs', {
+		message: message
+	})
+})
+	
+router.post('/login', async (req, res, next) => {
+                try {
+                    const user = await User.findOne({
+                        username: req.body.username
+                    })
+                    if (!user) {
+                        console('bad username');
+                        req.session.message = "Invalid username or password"
+                        res.redirect('/auth/login')
+                    } else {
+                        if (user.password == req.body.password) {
+                            req.session.loggedIn = true
+                            req.session.userId = user._id
+                            req.session.username = user.username
+                            req.session.message = `Welcome back, ${user.username}!`
+                            res.redirect('/')
+                        } else {
+                            console.log('bad password');
+                            req.session.message = 'Invalid username or password'
+                            res.redirect('/auth/login')
+                        }
+                    } 
+                }catch (err) {
+                  next(err)
+                }
+            })
+
+
+	
+
 
 
 		
