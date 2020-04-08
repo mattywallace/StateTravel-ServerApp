@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const bcrypt = require('bcrypt')
 
 
 // registration route: GET /auth/register
@@ -34,9 +35,11 @@ router.post('/register', async (req, res, next) => {
             req.session.message = `An account with the email ${desiredEmailAddress} is already in use`
             res.redirect('/auth/register')
         } else {
+            const salt = bcrypt.genSaltSync(10)
+            const hashedPassword = bcrypt.hashSync(desiredPasssword, salt)
             const createdUser = await User.create({
                 username: desiredUsername,
-                password: desiredPasssword,
+                password: hashedPasssword,
                 emailAddress: desiredEmailAddress
             })
             req.session.loggedIn = true
@@ -68,7 +71,8 @@ router.post('/login', async (req, res, next) => {
             req.session.message = "Invalid username or password"
             res.redirect('/auth/login')
         } else {
-            if (user.password == req.body.password) {
+            const loginInfoIsValid = bcrypt.compareSync(req.body.password, user.password)
+            if (loginInfoIsValid) {
                 req.session.loggedIn = true
                 req.session.userId = user._id
                 req.session.username = user.username
