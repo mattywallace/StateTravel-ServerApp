@@ -48,16 +48,24 @@ router.get('/',  async (req, res, next ) => {
 
 router.get('/:id', async (req, res, next) => {
 	try {
+		let messsageToDisplay = req.session.message
+    	req.session.message = ''
 		const foundState = await State.findById(req.params.id)
 		console.log(foundState)
 		res.render('states/show.ejs', {
 			state: foundState,
-			userId: req.session.userId
+			userId: req.session.userId,
+			username: req.session.username,
+			message: messsageToDisplay
 		})
 	} catch(error) {
 	  next(error)
 	}
 })
+
+
+
+
 
 
 // state 		POST /states
