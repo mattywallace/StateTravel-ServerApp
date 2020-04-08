@@ -23,6 +23,17 @@ router.get
 
 
 
+// populate state data from stateData.js
+State.create(stateData, (error, createdStates) => {
+	    if(error) {
+        console.log("There was an error");
+        console.log(error)
+    } else {
+        console.log("Here is the created State data")
+        console.log(createdStates)
+    }
+})
+
 
 
 module.exports = router
