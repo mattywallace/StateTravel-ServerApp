@@ -1,6 +1,18 @@
 <%- include('../partials/header.ejs') %>
 
-<h3>States Index</h3>
+	<%- include('./nav.ejs') %>
+
+	<h3>States Index</h3>
+
+	<ul>
+		<% states.forEach((state) => { %>
+			<li>
+				<a href="/states/<%= state.id %>"><%= state.name %></a>
+
+				<!-- Need to add loop to populate state data from future stateData.js file -->
+			</li>
+		<%})%>
+	</ul>
 
 
 

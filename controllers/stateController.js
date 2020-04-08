@@ -1,16 +1,26 @@
 const express = require('express')
 const router = express.Router()
+const State = require('../models/state')
 
-// state route: GET /auth/register
-router.get('/', (req, res) => {
-    // let messsageToDisplay = req.session.message
-    // req.session.message = ''
-    res.send('state controller working')
-
-//     {
-//         message: messsageToDisplay
-//     })
+// state index route: GET /auth/register
+router.get('/',  async (req, res, next ) => {
+	try {
+		const foundStates = await State().populate('user')
+		console.log(foundStates)
+		res.render('states/index.ejs', {
+			states: foundStates
+		})
+	}catch(error) {
+		next(error)
+	}
 })
+
+
+// state show route: GET /states/:id
+
+router.get
+
+
 
 
 
