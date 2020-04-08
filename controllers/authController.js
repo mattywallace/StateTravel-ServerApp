@@ -28,7 +28,7 @@ router.post('/register', async (req, res, next) => {
         })
         console.log(userWithThisUsername);
         if (userWithThisUsername) { // if user with this username or this  
-            console.log(' username exists');
+            console.log('username exists');
             req.session.message = `Username ${desiredUsername} already exists`
             res.redirect('/auth/register')
         } else if (userWithThisEmailAddress) {
@@ -40,7 +40,7 @@ router.post('/register', async (req, res, next) => {
             const hashedPassword = bcrypt.hashSync(desiredPasssword, salt)
             const createdUser = await User.create({
                 username: desiredUsername,
-                password: hashedPasssword,
+                password: hashedPassword,
                 emailAddress: desiredEmailAddress
             })
             req.session.loggedIn = true

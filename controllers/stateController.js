@@ -30,7 +30,8 @@ router.get('/',  async (req, res, next ) => {
 		const foundStates = await State.find({})
 		console.log(foundStates)
 		res.render('states/index.ejs', {
-			states: foundStates
+			states: foundStates,
+			userId: req.session.userId
 		})
 	}catch(error) {
 		next(error)
@@ -45,7 +46,8 @@ router.get('/:id', async (req, res, next) => {
 		const foundState = await State.findById(req.params.id)
 		console.log(foundState)
 		res.render('states/show.ejs', {
-			state: foundState
+			state: foundState,
+			userId: req.session.userId
 		})
 	} catch(error) {
 	  next(error)
