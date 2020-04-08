@@ -21,5 +21,26 @@
 
 
 
+	 <ul>
+	     <% state.comments.forEach((comment) => { %>
+	        <li>
+	          <%= comment.text %>
+	          <br />
+	          <small> (<%= comment.date.toLocaleString() %>) by (<%= comment.user.username %>) </small>
+	        </li>
+	     <% }) %>
+	 </ul>
+
+
+ <fieldset>
+      <label for="readyToEat">Ready to eat?</label>
+      <input type="checkbox" name="readyToEat" 
+        <% if(fruit.readyToEat) { %>
+          checked
+        <% } %>
+      />
+    </fieldset>
+
+
 
 <%- include('../partials/footer.ejs') %>
