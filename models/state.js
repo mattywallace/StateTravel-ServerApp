@@ -3,8 +3,6 @@ const mongoose = require('mongoose')
 
 
 
-
-
 const stateSchema = new mongoose.Schema({
 	state: {
 		type: String,
@@ -21,12 +19,16 @@ const stateSchema = new mongoose.Schema({
 	topAttractions: [String],
 	stateBird: String, 
 	birdImage: String, 
+	visited: Boolean,
 	comment:[{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Comment'
+		ref: 'Comment',
 	}]
 
 })
+
+
+
 
 const State = mongoose.model('State', stateSchema)
 

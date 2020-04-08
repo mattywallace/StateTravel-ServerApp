@@ -53,6 +53,33 @@ router.get('/:id', async (req, res, next) => {
 })
 
 
+// state 		POST /states
+router.post('/', (req, res, next) => {
+
+})
+
+//if 'visited' checkbox is not checked, comments are unavailable to the user
+
+//else comments are available
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

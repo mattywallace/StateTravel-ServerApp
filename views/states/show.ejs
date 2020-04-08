@@ -11,7 +11,20 @@
 		<p> <%= state.population %>
 		<p> <%= state.topAttractions %>
 		<img src="<%= state.birdImage %>"/>
+		<fieldset>
+			<label for="visited">I have been here</label>
+			<input id="visited" type="checkbox" name="visited">
+		</fieldset>
 
+	<ul>
+    	<% state.comments.forEach((comment) => { %>
+      	<li>
+        	<%= comment.text %>
+        	<br />
+        	<small>(<%= comment.date.toLocaleString() %>) by (<%= comment.user.username %>) </small>
+      	</li>
+    	<% }) %>
+  	</ul>
 
 
 <%- include('../partials/footer.ejs') %>
