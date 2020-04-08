@@ -5,6 +5,7 @@ const User = require('../models/user')
 
 
 
+
 router.get('/:userId/states', async (req, res, next) => {
 	try {
 		const statesForThisUser = await State.find({user: req.params.userId}).populate('user')
