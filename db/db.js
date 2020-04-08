@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const connectionString = process.env.MONGODB_URI
-
+const State = require('../models/state.js')
 
 mongoose.connect(connectionString, {
 useNewUrlParser: true,
@@ -24,4 +24,5 @@ mongoose.connection.on('error', (err) => {
 console.log(`error with database connection:`);
 console.log(err)
 })
+
 

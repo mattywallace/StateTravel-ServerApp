@@ -6,20 +6,21 @@ const mongoose = require('mongoose')
 
 
 const stateSchema = new mongoose.Schema({
-	name : {
+	state: {
 		type: String,
 		required: true
 	},
 	capital: {
 		type: String,
-		req: true, 
+		required: true, 
 	},
 	population: {
 		type: Number,
 		required: true
 	},
 	topAttractions: [String],
-	stateBird: String,
+	stateBird: String, 
+	birdImage: String, 
 	comment:[{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Comment'
