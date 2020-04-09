@@ -77,7 +77,7 @@ router.post('/userId', async (req, res, next) => {
 			state: req.body.state,
 
 		}
-		user.visited.push(stateVisited)
+		user.states.push(stateVisited)
 		await user.save()
 		res.send('user show page')
 		// res.render('/users/stateList.ejs', {

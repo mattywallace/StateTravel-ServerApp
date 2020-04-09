@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 	firstName: String, 
 	lastName: String,
 	dateOfBirth: Date,
-	visited: [{
+	states: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref:'State'
 	}],
