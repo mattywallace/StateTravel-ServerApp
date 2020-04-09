@@ -20,7 +20,7 @@
 		<%}%>
 
 
-		<% if(username) {%>
+		<% if(state.visited == true) {%>
 			<form method="POST" action="/comments/<%= state.id %>">
 				<textarea name='text' placeholder="share your experience"></textarea>
 				<br />

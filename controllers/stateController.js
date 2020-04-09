@@ -25,7 +25,7 @@ router.get('/seed', async (req, res, next) => {
 
 
 // state INDEX route: GET /auth/register
-router.get('/',  async (req, res, next ) => {
+router.get('/', async (req, res, next ) => {
 	try {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
@@ -36,6 +36,7 @@ router.get('/',  async (req, res, next ) => {
 			userId: req.session.userId,
 			username: req.session.username,
 			message: messsageToDisplay,
+			visited: req.session.visited
 
 		})
 	}catch(error) {
@@ -51,10 +52,9 @@ router.get('/:id', async (req, res, next) => {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
 		const foundState = await State.findById(req.params.id)
-			.populate('user')
-      		.populate('comments.user')
+			// .populate('user')
+   			//.populate('comments.user')
 		console.log(foundState)
-		
 		res.render('states/show.ejs', {
 			state: foundState,
 			userId: req.session.userId,
