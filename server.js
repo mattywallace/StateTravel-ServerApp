@@ -29,7 +29,8 @@ const stateController = require('./controllers/stateController')
 server.use('/states', stateController)
 const userController = require('./controllers/userController')
 server.use('/users', userController)
-
+const commentController = require('./controllers/commentController')
+server.use('/comments', commentController)
 
 server.get('/', (req, res) => {
 	const message = req.session.message

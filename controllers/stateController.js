@@ -14,7 +14,7 @@ router.get('/seed', async (req, res, next) => {
 		    } else {
 		        console.log("Here is the created State data")
 		        console.log(createdStates)
-		        res.send('state data populated')
+		        res.send('/states data uploaded')
 		    }
 		})
 	} catch(error) {

@@ -7,7 +7,7 @@ const commentSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	body: {
+	text: {
 		type: String,
 		req: true, 
 	},
@@ -16,11 +16,11 @@ const commentSchema = new mongoose.Schema({
 		default: Date.now
 	},
 	user:{
-		type:mongoose.Schema.Types.ObjectId
+		type: mongoose.Schema.Types.ObjectId,
 		ref:'User'
 	},	
 	state:{
-		type: mongoose.Schema.Types.ObjectId
+		type: mongoose.Schema.Types.ObjectId,
 		ref:'State'
 	}
 

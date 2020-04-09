@@ -20,26 +20,19 @@
 		<%}%>
 
 
-
-	 <ul>
-	     <% state.comments.forEach((comment) => { %>
-	        <li>
-	          <%= comment.text %>
-	          <br />
-	          <small> (<%= comment.date.toLocaleString() %>) by (<%= comment.user.username %>) </small>
-	        </li>
-	     <% }) %>
-	 </ul>
+		<% if(username) {%>
+			<form method="POST" action="/comments/<%= state.id %>">
+				<textarea name='text' placeholder="share your experience"></textarea>
+				<br />
+				<button>Share</button>
+			</form>
+		<%}%>
 
 
- <fieldset>
-      <label for="readyToEat">Ready to eat?</label>
-      <input type="checkbox" name="readyToEat" 
-        <% if(fruit.readyToEat) { %>
-          checked
-        <% } %>
-      />
-    </fieldset>
+
+
+
+
 
 
 

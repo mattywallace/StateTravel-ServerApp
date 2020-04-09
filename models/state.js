@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose')
-
+const Comment = require('./comment')
 
 
 const stateSchema = new mongoose.Schema({
@@ -20,12 +20,11 @@ const stateSchema = new mongoose.Schema({
 	stateBird: String, 
 	birdImage: String, 
 	visited: Boolean,
-	comment:[{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Comment',
-	}]
+	comments: [Comment.Schema]
+
 
 })
+
 
 
 

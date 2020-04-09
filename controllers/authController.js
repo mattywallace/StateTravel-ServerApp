@@ -73,7 +73,7 @@ router.post('/login', async (req, res, next) => {
             username: req.body.username
         })
         if (!user) {
-            console('bad username');
+            console.log('bad username');
             req.session.message = "Invalid username or password"
             res.redirect('/auth/login')
         } else {
