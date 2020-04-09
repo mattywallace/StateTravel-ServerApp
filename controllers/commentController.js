@@ -4,7 +4,7 @@ const State = require('../models/state')
 
 router.post('/:stateId', async (req, res, next) => {
 	try {
-		const state = await State.findById(req.params.StateId)
+		const state = await State.findById(req.params.stateId)
 		const commentToCreate = {
 			text: req.body.text,
 			user: req.session.userId

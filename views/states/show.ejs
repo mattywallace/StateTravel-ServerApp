@@ -29,6 +29,17 @@
 		<%}%>
 
 
+	<ul>
+    	<% state.comments.forEach((comment) => { %>
+      		<li>
+        	<%= comment.text %>
+        	<br />
+        	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.username %>) </small>
+      		</li>
+    	<% }) %>
+ 	</ul>
+
+
 
 
 

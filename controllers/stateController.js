@@ -51,7 +51,10 @@ router.get('/:id', async (req, res, next) => {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
 		const foundState = await State.findById(req.params.id)
+			.populate('user')
+      		.populate('comments.user')
 		console.log(foundState)
+		
 		res.render('states/show.ejs', {
 			state: foundState,
 			userId: req.session.userId,

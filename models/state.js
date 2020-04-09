@@ -20,7 +20,7 @@ const stateSchema = new mongoose.Schema({
 	stateBird: String, 
 	birdImage: String, 
 	visited: Boolean,
-	comments: [Comment.Schema]
+	comments: [Comment.schema]
 
 
 })
