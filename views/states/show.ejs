@@ -12,15 +12,15 @@
 		<p> <%= state.topAttractions %>
 		<img src="<%= state.birdImage %>"/>
 		
-		<% if(username) {%>
-			<fielset>
-				<label for="visited">I have been here</label>
-				<input id="visited" type="checkbox" name="visited"/>
-			</fieldset>
+		<% if(user) {%>
+			<form method="POST" action="/users/<%= user.id %>/states?_method=PUT">
+				<label for="states">I have been here</label>
+				<button>I have been here</button>
+			</form>
 		<%}%>
 
 
-		<% if(state.visited == true) {%>
+		<% if(user && state.visited == true) {%>
 			<form method="POST" action="/comments/<%= state.id %>">
 				<textarea name='text' placeholder="share your experience"></textarea>
 				<br />
@@ -34,7 +34,7 @@
       		<li>
         	<%= comment.text %>
         	<br />
-        	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.username %>) </small>
+        	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.user %>) </small>
       		</li>
     	<% }) %>
  	</ul>

@@ -29,12 +29,12 @@ router.get('/', async (req, res, next ) => {
 	try {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
-		const foundStates = await State.find({})
-		console.log(foundStates)
+		const foundStates = await State.find({}).populate('user')
+		// console.log(foundStates)
 		res.render('states/index.ejs', {
 			states: foundStates,
 			userId: req.session.userId,
-			username: req.session.username,
+			user: req.session.user,
 			message: messsageToDisplay,
 			visited: req.session.visited
 
@@ -52,13 +52,13 @@ router.get('/:id', async (req, res, next) => {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
 		const foundState = await State.findById(req.params.id)
-			// .populate('user')
-   			//.populate('comments.user')
+			.populate('user')
+   			.populate('comments.user')
 		console.log(foundState)
 		res.render('states/show.ejs', {
 			state: foundState,
 			userId: req.session.userId,
-			username: req.session.username,
+			user: req.session.user,
 			message: messsageToDisplay
 		})
 	} catch(error) {
@@ -66,28 +66,52 @@ router.get('/:id', async (req, res, next) => {
 	}
 })
 
+//possibilities: /:userId/states
+//this used to be /user:id
+//state visited POST route
+router.post('/userId', async (req, res, next) => {
+	try {
+		const user = await User.findById({user: req.params.userId}).populate('visited')
+		console.log(user, 'This is the user in the post route')
+		const stateVisited = {
+			state: req.body.state,
 
-
-
-
-
-// state 		POST /states
-router.post('/', (req, res, next) => {
-
+		}
+		user.visited.push(stateVisited)
+		await user.save()
+		res.send('user show page')
+		// res.render('/users/stateList.ejs', {
+		// 	userId: req.session.userId,
+		// 	user: req.session.user,
+		// 	userId: user.id
+		// })
+	} catch(error) {
+	  next(error)
+	}
 })
 
-//if 'visited' checkbox is not checked, comments are unavailable to the user
+// const user = await User.findById(req.params.userId).populate('user')
 
-//else comments are available
-
-
-
-
-
+//route to say user has visited state
+//populate state visited after button hit, push visited states to that users db
+//use stateId to push to array
+//add form w button to hit this route
 
 
-
-
+// router.post('/:stateId', async (req, res, next) => {
+// 	try {
+// 		const state = await State.findById(req.params.stateId)
+// 		const commentToCreate = {
+// 			text: req.body.text,
+// 			user: req.session.userId
+// 		}
+// 		state.comments.push(commentToCreate)
+// 		await state.save()
+// 		res.redirect('/states/' + state.id)
+// 	} catch (err) {
+// 		next (err)
+// 	}
+// })
 
 
 

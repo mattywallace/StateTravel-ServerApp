@@ -19,7 +19,6 @@ const stateSchema = new mongoose.Schema({
 	topAttractions: [String],
 	stateBird: String, 
 	birdImage: String, 
-	visited: Boolean,
 	comments: [Comment.schema]
 
 

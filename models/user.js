@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 const userSchema = new mongoose.Schema({
-	username: {
+	user: {
 		type: String,
 		required: true 
 	},
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 	firstName: String, 
 	lastName: String,
 	dateOfBirth: Date,
-	statesVisited: [{
+	visited: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref:'State'
 	}],

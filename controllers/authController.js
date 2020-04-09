@@ -17,14 +17,14 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res, next) => {
     try {
         console.log(req.body);
-        const desiredUsername = req.body.username
+        const desiredUsername = req.body.user
         const desiredPasssword = req.body.password
         const desiredEmailAddress = req.body.emailAddress
         const userWithThisEmailAddress = await User.findOne({
             emailAddress: desiredEmailAddress
         })
         const userWithThisUsername = await User.findOne({
-            username: desiredUsername
+            user: desiredUsername
         })
         console.log(userWithThisUsername);
         if (userWithThisUsername) { // if user with this username or this  
@@ -39,14 +39,14 @@ router.post('/register', async (req, res, next) => {
             const salt = bcrypt.genSaltSync(10)
             const hashedPassword = bcrypt.hashSync(desiredPasssword, salt)
             const createdUser = await User.create({
-                username: desiredUsername,
+                user: desiredUsername,
                 password: hashedPassword,
                 emailAddress: desiredEmailAddress
             })
             req.session.loggedIn = true
             req.session.userId = createdUser._id
-            req.session.username = createdUser.username
-            req.session.message = `Thank you for registering ${createdUser.username}`
+            req.session.user = createdUser.user
+            req.session.message = `Thank you for registering ${createdUser.user}`
             res.redirect('/')
         }
     } catch (err) {
@@ -70,7 +70,7 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res, next) => {
     try {
         const user = await User.findOne({
-            username: req.body.username
+            user: req.body.user
         })
         if (!user) {
             console.log('bad username');
@@ -81,8 +81,8 @@ router.post('/login', async (req, res, next) => {
             if (loginInfoIsValid) {
                 req.session.loggedIn = true
                 req.session.userId = user._id
-                req.session.username = user.username
-                req.session.message = `Welcome back, ${user.username}!`
+                req.session.user = user.user
+                req.session.message = `Welcome back, ${user.user}!`
                 res.redirect('/')
             } else {
                 console.log('bad password');
