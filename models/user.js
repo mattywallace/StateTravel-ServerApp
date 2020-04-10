@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const State = require('../models/state')
 
 const userSchema = new mongoose.Schema({
 	user: {
@@ -18,8 +18,8 @@ const userSchema = new mongoose.Schema({
 	lastName: String,
 	dateOfBirth: Date,
 	states: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref:'State'
+	type: mongoose.Schema.Types.ObjectId,
+	ref:'State'
 	}],
 })
 
