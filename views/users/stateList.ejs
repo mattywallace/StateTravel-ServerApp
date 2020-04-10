@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs') %>
+
+<h3> <%= user.username%>'s States Visited</h3>
+
+	<ul>
+		<% states.forEach((state) => { %>
+			<li>
+		 		<a href="/states/<%= state.id %>"><%= state.state %></a>
+			</li>
+		<%})%>
+	</ul>
+
+
+<%- include('../partials/footer.ejs') %>
+
