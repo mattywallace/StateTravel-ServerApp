@@ -13,7 +13,7 @@
 		<img src="<%= state.birdImage %>"/>
 		
 		<% if(user) {%>
-			<form method="POST" action="/users/<%= userId %>/states<%= user.id %>?_method=PUT">
+			<form method="POST" action="/users/<%= userId %>?_method=PUT" value= "value">
 				<label for="states">I have been here</label>
 				<button>I have been here</button>
 			</form>
