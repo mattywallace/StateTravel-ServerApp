@@ -53,7 +53,7 @@ router.get('/:id', async (req, res, next) => {
 	try {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
-		const foundState = await State.findById(req.params.id)
+		const foundState = await State.findById(req.params.id)   //   /states/:id
 			.populate('user')
    			.populate('comments.user')
 		console.log(foundState)
