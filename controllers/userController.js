@@ -22,26 +22,25 @@ router.get('/:userId', async (req, res, next) => {
 
 //NEED TO FIND OUT HOW TO REFERENCES USER'S STATES FROM THE USER MODEL IN THE CONTROLLER
 // post new state to user
-router.post('/:userId', async (req, res, next) => {
-	try {
-		// const statesThisUserHasVisited = await User.find()
-		// console.log(statesThisUserHasVisited)
-		// // res.send('route working')
-		// console.log(req.params.user)
-		// console.log(req.params.userId) //DEFINED
-		// console.log(req.session)	//DEFINED
-		// console.log(userId.state)
-		const stateToAddToShowPage = {states: req.body.states}
-		console.log(stateToAddToShowPage)
-		const statesVisited = await User.findById(req.params.user.states).populate('states')
-		console.log(statesVisted)
-		user.states.push(statesVisited)
-		await user.save()
-		res.send('user show page')
-		res.render('users/show.ejs')
-	} catch(error) {
-	  next(error)
-	}
+router.put('/:userId', async (req, res, next) => {
+	// try {
+		
+	// 	// const stateToAddToShowPage = {states: req.body.states}
+	// 	// console.log(stateToAddToShowPage)
+	// 	console.log(req.body.state)
+	// 	const statesVisited = await User.findById(req.params.userId).populate('states')
+	// 	console.log(statesVisted)
+	// 	user.states.push(statesVisited)
+	// 	await user.save()
+	// 	// res.send('user show page')
+	// 	res.render('users/show.ejs',{
+	// 		states: req.body.state
+	// 	})
+	// } catch(error) {
+	//   next(error)
+	// }
+	res.send('this works')
+
 })
 
 

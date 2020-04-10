@@ -3,7 +3,7 @@
 <h3> <%= user.user %>'s States Visited</h3>
 
 	<ul>
-		<% states.forEach((state) => { %>
+		<% user.states.forEach((state) => { %>
 			<li>
 		 		<a href="/states/<%= state.id %>"><%= state.state%></a>
 			</li>
