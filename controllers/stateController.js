@@ -69,22 +69,17 @@ router.get('/:id', async (req, res, next) => {
 //possibilities: /:userId/states
 //this used to be /user:id
 //state visited POST route
-router.post('/userId', async (req, res, next) => {
+router.post('/:userId/', async (req, res, next) => {
 	try {
-		const user = await User.findById({user: req.params.userId}).populate('visited')
-		console.log(user, 'This is the user in the post route')
 		const stateVisited = {
 			state: req.body.state,
-
+			userId: req.session.userId,
 		}
+		const user = await User.findById(req.params.userId).populate('states')
 		user.states.push(stateVisited)
 		await user.save()
 		res.send('user show page')
-		// res.render('/users/stateList.ejs', {
-		// 	userId: req.session.userId,
-		// 	user: req.session.user,
-		// 	userId: user.id
-		// })
+		// res.render('/users/stateList.ejs')
 	} catch(error) {
 	  next(error)
 	}
