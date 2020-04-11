@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const State = require('../models/state')
 const stateData = require('../db/stateData.js')
+const User = require('../models/user')
+
 
 
 // state SEED route
@@ -51,7 +53,7 @@ router.get('/:id', async (req, res, next) => {
 	try {
 		let messsageToDisplay = req.session.message
     	req.session.message = ''
-		const foundState = await State.findById(req.params.id)
+		const foundState = await State.findById(req.params.id)   //   /states/:id
 			.populate('user')
    			.populate('comments.user')
 		console.log(foundState)
@@ -69,21 +71,25 @@ router.get('/:id', async (req, res, next) => {
 //possibilities: /:userId/states
 //this used to be /user:id
 //state visited POST route
-router.post('/:userId/', async (req, res, next) => {
-	try {
-		const stateVisited = {
-			state: req.body.state,
-			userId: req.session.userId,
-		}
-		const user = await User.findById(req.params.userId).populate('states')
-		user.states.push(stateVisited)
-		await user.save()
-		res.send('user show page')
-		// res.render('/users/stateList.ejs')
-	} catch(error) {
-	  next(error)
-	}
-})
+
+// router.post('/:userId', async (req, res, next) => {
+// 	try {
+// 		res.send('route working')
+// 		// const stateVisited = {
+// 		// 	state: req.body.state,
+// 		// 	userId: req.session.userId,
+// 		// }
+// 		// const user = await User.findById(req.params.userId).populate('states')
+		
+// 		// user.states.push(stateVisited)
+// 		// await user.save()
+// 		// res.send('user show page')
+// 		// res.render('/users/stateList.ejs')
+// 	} catch(error) {
+// 	  next(error)
+// 	}
+// })
+
 
 // const user = await User.findById(req.params.userId).populate('user')
 
