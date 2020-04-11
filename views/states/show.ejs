@@ -10,10 +10,12 @@
 		<p> <%= state.stateBird %>
 		<p> <%= state.population %>
 		<p> <%= state.topAttractions %>
-		<img src="<%= state.birdImage %>"/>
+		<img class='birds' src="<%= state.birdImage %>"/>
 		
 		<% if(user) {%>
+
 			<form method="POST" action="/users/<%= userId %>?_method=PUT" value= "value">
+
 				<label for="states">I have been here</label>
 				<button>I have been here</button>
 			</form>

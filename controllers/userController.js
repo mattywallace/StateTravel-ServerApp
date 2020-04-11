@@ -6,6 +6,7 @@ const User = require('../models/user')
 
 
 
+
 router.get('/:userId', async (req, res, next) => {
 
 	try {
@@ -18,6 +19,7 @@ router.get('/:userId', async (req, res, next) => {
 	} catch(error) {
 	  next(error)
 	}
+
 })
 
 
@@ -45,8 +47,6 @@ router.put('/:userId', async (req, res, next) => {
 })
 
 	
-
-
 
 
 

@@ -71,6 +71,7 @@ router.get('/:id', async (req, res, next) => {
 //possibilities: /:userId/states
 //this used to be /user:id
 //state visited POST route
+
 // router.post('/:userId', async (req, res, next) => {
 // 	try {
 // 		res.send('route working')
@@ -88,6 +89,7 @@ router.get('/:id', async (req, res, next) => {
 // 	  next(error)
 // 	}
 // })
+
 
 // const user = await User.findById(req.params.userId).populate('user')
 
