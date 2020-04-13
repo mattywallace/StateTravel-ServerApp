@@ -26,12 +26,14 @@ router.get('/:userId', async (req, res, next) => {
 // post new state to user
 router.put('/:userId', async (req, res, next) => {
 	try {
-		const stateVisited = {
-			state: req.body.state, 
-			userId: req.session.user}
-		const user = await User.findById(req.params.userId).populate('states')
+		console.log('this is req.body.state', req.body.state);
+		const stateVisited = req.body.state
+			// userId: req.session.user}
+		const user = await User.findById(req.params.userId).populate('State')
+		console.log(stateVisited);
 		user.states.push(stateVisited)
 		await user.save()
+		console.log('user.states', user.states);
 		res.locals.user = req.session.user
 		res.render('users/show.ejs', {
 			users: req.session.user,
@@ -52,3 +54,32 @@ router.put('/:userId', async (req, res, next) => {
 
 
 module.exports = router
+
+
+
+
+
+
+
+// // post new state to user
+// router.put('/:userId', async (req, res, next) => {
+// 	try {
+// 		const stateVisited = {
+// 			state: req.body.state, 
+// 			userId: req.session.user}
+// 		const user = await User.findById(req.params.userId).populate('states')
+// 		user.states.push(stateVisited)
+// 		await user.save()
+// 		res.locals.user = req.session.user
+// 		res.render('users/show.ejs', {
+// 			users: req.session.user,
+// 			// states: req.body.state,
+// 			// state: req.body.state,
+// 			// states: req.params.stateId,
+// 			// res.locals.states = req.session.states
+			
+// 		})
+// 	} catch(error) {
+// 	  next(error)
+// 	}
+// })

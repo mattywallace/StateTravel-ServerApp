@@ -22,13 +22,13 @@
 		<%}%>
 
 
-		<% if(user && state.visited == true) {%>
+
 			<form method="POST" action="/comments/<%= state.id %>">
 				<textarea name='text' placeholder="share your experience"></textarea>
 				<br />
 				<button>Share</button>
 			</form>
-		<%}%>
+		
 
 
 	<ul>
@@ -37,6 +37,11 @@
         	<%= comment.text %>
         	<br />
         	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.user %>) </small>
+				 <small>
+		        	<form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
+		            	<button>Delete This Comment</button>
+		        	</form>
+		    	</small>
       		</li>
     	<% }) %>
  	</ul>
