@@ -24,29 +24,23 @@ router.get('/:userId', async (req, res, next) => {
 
 
 // post new state to user
-router.put('/:userId', async (req, res, next) => {
+router.put('/:userId/:stateId', async (req, res, next) => {
 	try {
-		console.log('this is req.body.state', req.body.state);
-		const stateVisited = req.body.state
-			// userId: req.session.user}
-		const user = await User.findById(req.params.userId).populate('State')
+		const stateVisited = req.params.stateId
+		const user = await User.findById(req.params.userId)
 		console.log(stateVisited);
 		user.states.push(stateVisited)
 		await user.save()
 		console.log('user.states', user.states);
 		res.locals.user = req.session.user
-		res.render('users/show.ejs', {
-			users: req.session.user,
-			// states: req.body.state,
-			// state: req.body.state,
-			// states: req.params.stateId,
-			// res.locals.states = req.session.states
-			
-		})
+		res.redirect(`/users/${req.params.userId}`)
 	} catch(error) {
 	  next(error)
 	}
 })
+			
+			
+		
 
 	
 
