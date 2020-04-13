@@ -18,8 +18,8 @@ const userSchema = new mongoose.Schema({
 	lastName: String,
 	dateOfBirth: Date,
 	states: [{
-	type: mongoose.Schema.Types.ObjectId,
-	ref:'State'
+		type: mongoose.Schema.Types.ObjectId,
+		ref:'State'
 	}],
 })
 
