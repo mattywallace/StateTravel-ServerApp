@@ -2,21 +2,22 @@
 
 	<%- include('./nav.ejs') %>
 
-	<h3>States Show</h3>
+	
 
 
-	<h3> <%= state.state %> <h3>
+	<h2> <%= state.state %> </h2>
 
-		<p> <%= state.stateBird %>
-		<p>  <%= state.population %>
-		<p>  <%= state.topAttractions %>
+		<p> State Bird: <%= state.stateBird %>
+		<p> State Population: <%= state.population %>
+		<p> Top Attractions: <%= state.topAttractions %>
 		<img class='birds' src="<%= state.birdImage %>"/>
 		
 		<% if(user) {%>
 
 			<form method="POST" action="/users/<%= userId %>/<%= state.id %>?_method=PUT" value= "value">
 
-				<label for="states">I have been here</label>
+				<label for="states"></label>
+				
 				<button>I have been here</button>
 			</form>
 		<%}%>
@@ -24,7 +25,7 @@
 
 
 			<form method="POST" action="/comments/<%= state.id %>">
-				<textarea name='text' placeholder="share your experience"></textarea>
+				<textarea name='text' placeholder="Share your experience"></textarea>
 				<br />
 				<button>Share</button>
 			</form>

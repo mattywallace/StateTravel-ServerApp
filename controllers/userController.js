@@ -15,7 +15,7 @@ router.get('/:userId', async (req, res, next) => {
 		const state = await State.findById(user.states._id).populate('state')
 		console.log('this is the state we clicked', state);
 		console.log('this is the user we found', user)
-		console.log(user, 'this is the user') ///taking out this populate will render but not print user)
+		console.log(user, 'this is the user')
 		res.render('users/show.ejs', {
 			user: user.user,
 			states: user.states,
