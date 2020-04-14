@@ -1,9 +1,10 @@
   <nav>
     <small>
       
+
+      <% if(user) {%>
       <a href="/users/<%= userId %>">My Profile</a>
-
-
+      <%}%>
 
       <p><%= message %></p>
      

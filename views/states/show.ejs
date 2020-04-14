@@ -23,13 +23,13 @@
 		<%}%>
 
 
-
+			<% if(user) {%>
 			<form method="POST" action="/comments/<%= state.id %>">
 				<textarea name='text' placeholder="Share your experience"></textarea>
 				<br />
 				<button>Share</button>
 			</form>
-		
+			<%}%>		
 
 
 	<ul>

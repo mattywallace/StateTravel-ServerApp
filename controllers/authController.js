@@ -27,7 +27,7 @@ router.post('/register', async (req, res, next) => {
             user: desiredUsername
         })
         console.log(userWithThisUsername);
-        if (userWithThisUsername) { // if user with this username or this  
+        if (userWithThisUsername) { 
             console.log('username exists');
             req.session.message = `Username ${desiredUsername} already exists`
             res.redirect('/auth/register')
