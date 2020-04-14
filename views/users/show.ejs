@@ -27,30 +27,5 @@
 
 
 
-<!-- 
-USER SHOW PAGE NOTES:
--'user' is defined here via the res.locals in userController PUT route
 
--PUT route in userController populates the visited state ID into the user object, but can't figure out how populate those state IDs as strings on this page
--IDEAS: 
-	-figure out how to convert to string after res.render of PUT route
-		-do another async await above const stateVisited?
-
-
-EXAMPLE USER OBJECT AFTER USER VISITS STATES:
-> db.users.find().pretty()
-{
-	"_id" : ObjectId("5e910a1282f2620e3915f11e"),
-	"states" : [
-		ObjectId("5e910a1782f2620e3915f11f"),
-		ObjectId("5e910ba04373a20e71158bbd"),
-		ObjectId("5e91135957fd580fec7f4cb1"),
-		ObjectId("5e911d3fce00dd116fb3d353"),
-		ObjectId("5e911d5899f3091176008832")
-	],
-	"user" : "a",
-	"password" : "$2b$10$15y2S1iq.Auwy59yZKDJ1Ot28yVmWgXCP/kSGSRbKgCmmVM9kthEC",
-	"emailAddress" : "stephen.a.boyer@gmail.com",
-	"__v" : 97
- -->
 

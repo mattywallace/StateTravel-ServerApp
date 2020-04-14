@@ -32,7 +32,7 @@ router.get('/:userId', async (req, res, next) => {
 // post new state to user
 router.put('/:userId/:stateId', async (req, res, next) => {
 	try {
-		const stateVisited = await State.find({user: req.params.userId}).populate('user')
+		const stateVisited = await State.findById(req.params.stateId).populate('user')
 		const user = await User.findById(req.params.userId)
 		console.log("this is the state visited", stateVisited);
 		user.states.push(stateVisited)

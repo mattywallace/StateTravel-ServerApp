@@ -8,8 +8,8 @@
 	<h3> <%= state.state %> <h3>
 
 		<p> <%= state.stateBird %>
-		<p> <%= state.population %>
-		<p> <%= state.topAttractions %>
+		<p>  <%= state.population %>
+		<p>  <%= state.topAttractions %>
 		<img class='birds' src="<%= state.birdImage %>"/>
 		
 		<% if(user) {%>
@@ -38,7 +38,7 @@
         	<br />
         	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.user %>) </small>
 				 <small>
-		        	<form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
+		        	<form method="POST" action="/comments/<%= state.id %>/<%= comment.id %>?_method=DELETE">
 		            	<button>Delete This Comment</button>
 		        	</form>
 		    	</small>
