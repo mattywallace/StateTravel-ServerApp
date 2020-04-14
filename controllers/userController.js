@@ -32,7 +32,7 @@ router.get('/:userId', async (req, res, next) => {
 // post new state to user
 router.put('/:userId/:stateId', async (req, res, next) => {
 	try {
-		const stateVisited = await State.find({user: req.params.userId}).populate('user')
+		const stateVisited = await State.findById(req.params.stateId).populate('user')
 		const user = await User.findById(req.params.userId)
 		console.log("this is the state visited", stateVisited);
 		user.states.push(stateVisited)
@@ -57,29 +57,3 @@ module.exports = router
 
 
 
-
-
-
-
-// // post new state to user
-// router.put('/:userId', async (req, res, next) => {
-// 	try {
-// 		const stateVisited = {
-// 			state: req.body.state, 
-// 			userId: req.session.user}
-// 		const user = await User.findById(req.params.userId).populate('states')
-// 		user.states.push(stateVisited)
-// 		await user.save()
-// 		res.locals.user = req.session.user
-// 		res.render('users/show.ejs', {
-// 			users: req.session.user,
-// 			// states: req.body.state,
-// 			// state: req.body.state,
-// 			// states: req.params.stateId,
-// 			// res.locals.states = req.session.states
-			
-// 		})
-// 	} catch(error) {
-// 	  next(error)
-// 	}
-// })

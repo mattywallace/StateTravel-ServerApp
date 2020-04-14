@@ -38,7 +38,7 @@
         	<br />
         	 <small>(<%= comment.posted.toLocaleString() %>) by (<%= comment.user.user %>) </small>
 				 <small>
-		        	<form method="POST" action="/comments/<%= comment.id %>?_method=DELETE">
+		        	<form method="POST" action="/comments/<%= state.id %>/<%= comment.id %>?_method=DELETE">
 		            	<button>Delete This Comment</button>
 		        	</form>
 		    	</small>

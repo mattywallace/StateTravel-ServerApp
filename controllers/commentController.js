@@ -22,7 +22,7 @@ router.post('/:stateId', async (req, res, next) => {
 
 
 // Destroy route 
-router.delete('/:stateId', async (req, res, next) => { 
+router.delete('/:stateId/:commentId', async (req, res, next) => { 
 	try { 
 		if(req.session.loggedIn == true ) {
 			console.log('this is req.session.id',req.session.id);
@@ -30,9 +30,7 @@ router.delete('/:stateId', async (req, res, next) => {
 			console.log('this is req.params', req.params)
 			const commentToDelete = await State.findById(req.params.stateId).populate('comments')
 			console.log( 'this is the comment to delete ', commentToDelete);
-			res.redirect(`/states/${req.params.stateId}`, {
-				state: req.params.stateId
-			})
+			res.redirect(`/states/${req.params.stateId}`)
 		} else {
 			res.redirect(`/states/${req.params.stateId}`)
 		}
